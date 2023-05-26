@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/osinica/proto.git"
   },
-  "version": "0.0",
+  "version": "0.0.1",
   "scripts": {
     "build:typescript": "tsc --build ./typescript/tsconfig.json"
   },
