@@ -1,0 +1,106 @@
+name: Publish proto packages
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+
+jobs:
+  set-version:
+    name: Set tag version
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{steps.tag.outputs.version}}
+    steps:
+      - name: Parse tag
+        id: tag
+        run: |
+          echo "version=${GITHUB_REF##*/v}" >> $GITHUB_OUTPUT
+
+  create-release:
+    name: Create release
+    runs-on: ubuntu-latest
+    needs:
+      - set-version
+      - increase-version
+    permissions:
+      contents: write
+    outputs:
+      release_upload_url: ${{steps.create-release.outputs.upload_url}}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create release
+        id: create-release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: ${{needs.set-version.outputs.version}}
+          token: ${{secrets.GITHUB_TOKEN}}
+
+  increase-version:
+    name: Increase package versions
+    runs-on: ubuntu-latest
+    needs:
+      - set-version
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: "main"
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          cache: "npm"
+      - name: Increase npm version
+        run: npm version --no-git-tag-version ${{needs.set-version.outputs.version}}
+      - name: Commit changes
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: "chore: increase npm version [skip ci]"
+
+  publish-npm:
+    name: Publish NPM package
+    runs-on: ubuntu-latest
+    needs:
+      - set-version
+      - create-release
+      - increase-version
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: "main"
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          registry-url: https://npm.pkg.github.com/
+          scope: "@osinica"
+          cache: "npm"
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: make build-typescript
+      - name: Bundle
+        run: zip --junk-paths archive-ts.zip package.json typescript/dist/*
+      - name: Publish to release assets
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        with:
+          upload_url: ${{needs.create-release.outputs.release_upload_url}}
+          asset_path: ./archive-ts.zip
+          asset_name: ts-build-${{needs.set-version.outputs.version}}.zip
+          asset_content_type: application/zip
+      - name: Publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

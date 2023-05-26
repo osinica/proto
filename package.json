@@ -1,9 +1,18 @@
 {
+  "name": "@osinica/proto",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/osinica/proto.git"
+  },
+  "version": "0.0",
   "scripts": {
     "build:typescript": "tsc --build ./typescript/tsconfig.json"
   },
   "dependencies": {
     "ts-proto": "^1.148.1",
     "typescript": "^5.0.4"
-  }
+  },
+  "files": [
+    "typescript/dist"
+  ]
 }
