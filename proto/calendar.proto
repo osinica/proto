@@ -1,24 +1,19 @@
 syntax = "proto3";
 
-package meal;
+package calendar;
 
-option go_package = "./pkg/product/pb";
+option go_package = "./pkg/calendar";
 
-service MealService {
-    rpc CreateMeal(CreateMealRequest) returns (CreateMealResponse) {}
+service CalendarService {
+    rpc CreateEvent(CreateEventRequest) returns (CreateEventResponse) {}
     rpc FindOne(FindOneRequest) returns (FindOneResponse) {}
 }
 
-message Meal {
+message Event {
     string id = 1;
     string name = 2;
-    Time duration = 3;
-}
-
-enum Time {
-    SHORT = 0;
-    MEDIUM = 1;
-    LONG = 2;
+    uint32 start = 3;
+    uint32 end = 4;
 }
 
 enum Status {
@@ -27,15 +22,16 @@ enum Status {
 }
 
 // create
-message CreateMealRequest {
+message CreateEventRequest {
     string name = 1;
-    Time duration = 2;
+    uint32 start = 2;
+    uint32 ent = 3;
 }
 
-message CreateMealResponse {
+message CreateEventResponse {
     Status status = 1;
     string error = 2;
-    Meal data = 3;
+    Event data = 3;
 }
 
 // find one
@@ -46,7 +42,5 @@ message FindOneRequest {
 message FindOneResponse {
     Status status = 1;
     string error = 2;
-    Meal data = 3;
+    Event data = 3;
 }
-
-// find by time

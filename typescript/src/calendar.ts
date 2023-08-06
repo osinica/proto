@@ -1,46 +1,7 @@
 /* eslint-disable */
 import * as _m0 from "protobufjs/minimal";
 
-export const protobufPackage = "meal";
-
-export enum Time {
-  SHORT = 0,
-  MEDIUM = 1,
-  LONG = 2,
-  UNRECOGNIZED = -1,
-}
-
-export function timeFromJSON(object: any): Time {
-  switch (object) {
-    case 0:
-    case "SHORT":
-      return Time.SHORT;
-    case 1:
-    case "MEDIUM":
-      return Time.MEDIUM;
-    case 2:
-    case "LONG":
-      return Time.LONG;
-    case -1:
-    case "UNRECOGNIZED":
-    default:
-      return Time.UNRECOGNIZED;
-  }
-}
-
-export function timeToJSON(object: Time): string {
-  switch (object) {
-    case Time.SHORT:
-      return "SHORT";
-    case Time.MEDIUM:
-      return "MEDIUM";
-    case Time.LONG:
-      return "LONG";
-    case Time.UNRECOGNIZED:
-    default:
-      return "UNRECOGNIZED";
-  }
-}
+export const protobufPackage = "calendar";
 
 export enum Status {
   SUCCESS = 0,
@@ -75,22 +36,24 @@ export function statusToJSON(object: Status): string {
   }
 }
 
-export interface Meal {
+export interface Event {
   id: string;
   name: string;
-  duration: Time;
+  start: number;
+  end: number;
 }
 
 /** create */
-export interface CreateMealRequest {
+export interface CreateEventRequest {
   name: string;
-  duration: Time;
+  start: number;
+  ent: number;
 }
 
-export interface CreateMealResponse {
+export interface CreateEventResponse {
   status: Status;
   error: string;
-  data: Meal | undefined;
+  data: Event | undefined;
 }
 
 /** find one */
@@ -101,31 +64,34 @@ export interface FindOneRequest {
 export interface FindOneResponse {
   status: Status;
   error: string;
-  data: Meal | undefined;
+  data: Event | undefined;
 }
 
-function createBaseMeal(): Meal {
-  return { id: "", name: "", duration: 0 };
+function createBaseEvent(): Event {
+  return { id: "", name: "", start: 0, end: 0 };
 }
 
-export const Meal = {
-  encode(message: Meal, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+export const Event = {
+  encode(message: Event, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
     if (message.name !== "") {
       writer.uint32(18).string(message.name);
     }
-    if (message.duration !== 0) {
-      writer.uint32(24).int32(message.duration);
+    if (message.start !== 0) {
+      writer.uint32(24).uint32(message.start);
+    }
+    if (message.end !== 0) {
+      writer.uint32(32).uint32(message.end);
     }
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): Meal {
+  decode(input: _m0.Reader | Uint8Array, length?: number): Event {
     const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseMeal();
+    const message = createBaseEvent();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -148,7 +114,14 @@ export const Meal = {
             break;
           }
 
-          message.duration = reader.int32() as any;
+          message.start = reader.uint32();
+          continue;
+        case 4:
+          if (tag !== 32) {
+            break;
+          }
+
+          message.end = reader.uint32();
           continue;
       }
       if ((tag & 7) === 4 || tag === 0) {
@@ -159,54 +132,60 @@ export const Meal = {
     return message;
   },
 
-  fromJSON(object: any): Meal {
+  fromJSON(object: any): Event {
     return {
       id: isSet(object.id) ? String(object.id) : "",
       name: isSet(object.name) ? String(object.name) : "",
-      duration: isSet(object.duration) ? timeFromJSON(object.duration) : 0,
+      start: isSet(object.start) ? Number(object.start) : 0,
+      end: isSet(object.end) ? Number(object.end) : 0,
     };
   },
 
-  toJSON(message: Meal): unknown {
+  toJSON(message: Event): unknown {
     const obj: any = {};
     message.id !== undefined && (obj.id = message.id);
     message.name !== undefined && (obj.name = message.name);
-    message.duration !== undefined && (obj.duration = timeToJSON(message.duration));
+    message.start !== undefined && (obj.start = Math.round(message.start));
+    message.end !== undefined && (obj.end = Math.round(message.end));
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<Meal>, I>>(base?: I): Meal {
-    return Meal.fromPartial(base ?? {});
+  create<I extends Exact<DeepPartial<Event>, I>>(base?: I): Event {
+    return Event.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<Meal>, I>>(object: I): Meal {
-    const message = createBaseMeal();
+  fromPartial<I extends Exact<DeepPartial<Event>, I>>(object: I): Event {
+    const message = createBaseEvent();
     message.id = object.id ?? "";
     message.name = object.name ?? "";
-    message.duration = object.duration ?? 0;
+    message.start = object.start ?? 0;
+    message.end = object.end ?? 0;
     return message;
   },
 };
 
-function createBaseCreateMealRequest(): CreateMealRequest {
-  return { name: "", duration: 0 };
+function createBaseCreateEventRequest(): CreateEventRequest {
+  return { name: "", start: 0, ent: 0 };
 }
 
-export const CreateMealRequest = {
-  encode(message: CreateMealRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+export const CreateEventRequest = {
+  encode(message: CreateEventRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
-    if (message.duration !== 0) {
-      writer.uint32(16).int32(message.duration);
+    if (message.start !== 0) {
+      writer.uint32(16).uint32(message.start);
+    }
+    if (message.ent !== 0) {
+      writer.uint32(24).uint32(message.ent);
     }
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): CreateMealRequest {
+  decode(input: _m0.Reader | Uint8Array, length?: number): CreateEventRequest {
     const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseCreateMealRequest();
+    const message = createBaseCreateEventRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -222,7 +201,14 @@ export const CreateMealRequest = {
             break;
           }
 
-          message.duration = reader.int32() as any;
+          message.start = reader.uint32();
+          continue;
+        case 3:
+          if (tag !== 24) {
+            break;
+          }
+
+          message.ent = reader.uint32();
           continue;
       }
       if ((tag & 7) === 4 || tag === 0) {
@@ -233,38 +219,41 @@ export const CreateMealRequest = {
     return message;
   },
 
-  fromJSON(object: any): CreateMealRequest {
+  fromJSON(object: any): CreateEventRequest {
     return {
       name: isSet(object.name) ? String(object.name) : "",
-      duration: isSet(object.duration) ? timeFromJSON(object.duration) : 0,
+      start: isSet(object.start) ? Number(object.start) : 0,
+      ent: isSet(object.ent) ? Number(object.ent) : 0,
     };
   },
 
-  toJSON(message: CreateMealRequest): unknown {
+  toJSON(message: CreateEventRequest): unknown {
     const obj: any = {};
     message.name !== undefined && (obj.name = message.name);
-    message.duration !== undefined && (obj.duration = timeToJSON(message.duration));
+    message.start !== undefined && (obj.start = Math.round(message.start));
+    message.ent !== undefined && (obj.ent = Math.round(message.ent));
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<CreateMealRequest>, I>>(base?: I): CreateMealRequest {
-    return CreateMealRequest.fromPartial(base ?? {});
+  create<I extends Exact<DeepPartial<CreateEventRequest>, I>>(base?: I): CreateEventRequest {
+    return CreateEventRequest.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<CreateMealRequest>, I>>(object: I): CreateMealRequest {
-    const message = createBaseCreateMealRequest();
+  fromPartial<I extends Exact<DeepPartial<CreateEventRequest>, I>>(object: I): CreateEventRequest {
+    const message = createBaseCreateEventRequest();
     message.name = object.name ?? "";
-    message.duration = object.duration ?? 0;
+    message.start = object.start ?? 0;
+    message.ent = object.ent ?? 0;
     return message;
   },
 };
 
-function createBaseCreateMealResponse(): CreateMealResponse {
+function createBaseCreateEventResponse(): CreateEventResponse {
   return { status: 0, error: "", data: undefined };
 }
 
-export const CreateMealResponse = {
-  encode(message: CreateMealResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+export const CreateEventResponse = {
+  encode(message: CreateEventResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.status !== 0) {
       writer.uint32(8).int32(message.status);
     }
@@ -272,15 +261,15 @@ export const CreateMealResponse = {
       writer.uint32(18).string(message.error);
     }
     if (message.data !== undefined) {
-      Meal.encode(message.data, writer.uint32(26).fork()).ldelim();
+      Event.encode(message.data, writer.uint32(26).fork()).ldelim();
     }
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): CreateMealResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): CreateEventResponse {
     const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseCreateMealResponse();
+    const message = createBaseCreateEventResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -303,7 +292,7 @@ export const CreateMealResponse = {
             break;
           }
 
-          message.data = Meal.decode(reader, reader.uint32());
+          message.data = Event.decode(reader, reader.uint32());
           continue;
       }
       if ((tag & 7) === 4 || tag === 0) {
@@ -314,31 +303,31 @@ export const CreateMealResponse = {
     return message;
   },
 
-  fromJSON(object: any): CreateMealResponse {
+  fromJSON(object: any): CreateEventResponse {
     return {
       status: isSet(object.status) ? statusFromJSON(object.status) : 0,
       error: isSet(object.error) ? String(object.error) : "",
-      data: isSet(object.data) ? Meal.fromJSON(object.data) : undefined,
+      data: isSet(object.data) ? Event.fromJSON(object.data) : undefined,
     };
   },
 
-  toJSON(message: CreateMealResponse): unknown {
+  toJSON(message: CreateEventResponse): unknown {
     const obj: any = {};
     message.status !== undefined && (obj.status = statusToJSON(message.status));
     message.error !== undefined && (obj.error = message.error);
-    message.data !== undefined && (obj.data = message.data ? Meal.toJSON(message.data) : undefined);
+    message.data !== undefined && (obj.data = message.data ? Event.toJSON(message.data) : undefined);
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<CreateMealResponse>, I>>(base?: I): CreateMealResponse {
-    return CreateMealResponse.fromPartial(base ?? {});
+  create<I extends Exact<DeepPartial<CreateEventResponse>, I>>(base?: I): CreateEventResponse {
+    return CreateEventResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<CreateMealResponse>, I>>(object: I): CreateMealResponse {
-    const message = createBaseCreateMealResponse();
+  fromPartial<I extends Exact<DeepPartial<CreateEventResponse>, I>>(object: I): CreateEventResponse {
+    const message = createBaseCreateEventResponse();
     message.status = object.status ?? 0;
     message.error = object.error ?? "";
-    message.data = (object.data !== undefined && object.data !== null) ? Meal.fromPartial(object.data) : undefined;
+    message.data = (object.data !== undefined && object.data !== null) ? Event.fromPartial(object.data) : undefined;
     return message;
   },
 };
@@ -412,7 +401,7 @@ export const FindOneResponse = {
       writer.uint32(18).string(message.error);
     }
     if (message.data !== undefined) {
-      Meal.encode(message.data, writer.uint32(26).fork()).ldelim();
+      Event.encode(message.data, writer.uint32(26).fork()).ldelim();
     }
     return writer;
   },
@@ -443,7 +432,7 @@ export const FindOneResponse = {
             break;
           }
 
-          message.data = Meal.decode(reader, reader.uint32());
+          message.data = Event.decode(reader, reader.uint32());
           continue;
       }
       if ((tag & 7) === 4 || tag === 0) {
@@ -458,7 +447,7 @@ export const FindOneResponse = {
     return {
       status: isSet(object.status) ? statusFromJSON(object.status) : 0,
       error: isSet(object.error) ? String(object.error) : "",
-      data: isSet(object.data) ? Meal.fromJSON(object.data) : undefined,
+      data: isSet(object.data) ? Event.fromJSON(object.data) : undefined,
     };
   },
 
@@ -466,7 +455,7 @@ export const FindOneResponse = {
     const obj: any = {};
     message.status !== undefined && (obj.status = statusToJSON(message.status));
     message.error !== undefined && (obj.error = message.error);
-    message.data !== undefined && (obj.data = message.data ? Meal.toJSON(message.data) : undefined);
+    message.data !== undefined && (obj.data = message.data ? Event.toJSON(message.data) : undefined);
     return obj;
   },
 
@@ -478,29 +467,29 @@ export const FindOneResponse = {
     const message = createBaseFindOneResponse();
     message.status = object.status ?? 0;
     message.error = object.error ?? "";
-    message.data = (object.data !== undefined && object.data !== null) ? Meal.fromPartial(object.data) : undefined;
+    message.data = (object.data !== undefined && object.data !== null) ? Event.fromPartial(object.data) : undefined;
     return message;
   },
 };
 
-export interface MealService {
-  CreateMeal(request: CreateMealRequest): Promise<CreateMealResponse>;
+export interface CalendarService {
+  CreateEvent(request: CreateEventRequest): Promise<CreateEventResponse>;
   FindOne(request: FindOneRequest): Promise<FindOneResponse>;
 }
 
-export class MealServiceClientImpl implements MealService {
+export class CalendarServiceClientImpl implements CalendarService {
   private readonly rpc: Rpc;
   private readonly service: string;
   constructor(rpc: Rpc, opts?: { service?: string }) {
-    this.service = opts?.service || "meal.MealService";
+    this.service = opts?.service || "calendar.CalendarService";
     this.rpc = rpc;
-    this.CreateMeal = this.CreateMeal.bind(this);
+    this.CreateEvent = this.CreateEvent.bind(this);
     this.FindOne = this.FindOne.bind(this);
   }
-  CreateMeal(request: CreateMealRequest): Promise<CreateMealResponse> {
-    const data = CreateMealRequest.encode(request).finish();
-    const promise = this.rpc.request(this.service, "CreateMeal", data);
-    return promise.then((data) => CreateMealResponse.decode(_m0.Reader.create(data)));
+  CreateEvent(request: CreateEventRequest): Promise<CreateEventResponse> {
+    const data = CreateEventRequest.encode(request).finish();
+    const promise = this.rpc.request(this.service, "CreateEvent", data);
+    return promise.then((data) => CreateEventResponse.decode(_m0.Reader.create(data)));
   }
 
   FindOne(request: FindOneRequest): Promise<FindOneResponse> {

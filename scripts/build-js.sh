@@ -1,6 +1,9 @@
 #!/bin/bash
 
 echo "working from $PWD" 
+
+rm -rf typescript/{src,dist}
+
 protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=typescript proto/*.proto
 
 pushd typescript > /dev/null || exit 1
