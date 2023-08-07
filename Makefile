@@ -11,3 +11,6 @@ build-swift:
 	protoc --grpc-swift_opt=Client=true,Server=true --grpc-swift_out=swift --proto_path=. --swift_opt=Visibility=Public --swift_out=swift **/*.proto
 	mv swift/proto/* swift
 	rm -rf swift/proto
+
+build-csharp:
+	protoc --csharp_out=csharp --plugin=protoc-gen-grpc="csharp/tools/grpc_csharp_plugin" --grpc_out=csharp proto/*.proto

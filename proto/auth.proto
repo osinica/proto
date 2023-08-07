@@ -2,6 +2,7 @@ syntax = "proto3";
 package auth;
 
 option go_package = "./pkg/auth";
+option csharp_namespace = "Proto.Auth";
 
 service AuthService {
     rpc Validate(ValidateRequest) returns (ValidateResponse) {}
