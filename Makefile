@@ -13,4 +13,5 @@ build-swift:
 	rm -rf swift/proto
 
 build-csharp:
+	./scripts/download-csharp-tools.sh
 	protoc --csharp_out=csharp --plugin=protoc-gen-grpc="csharp/tools/grpc_csharp_plugin" --grpc_out=csharp proto/*.proto
