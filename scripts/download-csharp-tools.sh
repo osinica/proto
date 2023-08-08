@@ -26,11 +26,12 @@ else
     filename="windows_x${bit}"
 fi
 
+echo "using $filename"
+
 mv csharp/tools/tools/* csharp/tools
 rm -rf csharp/tools/tools
 mv csharp/tools/$filename/grpc_csharp_plugin tmp
 rm -rf csharp/tools/*
 mv tmp csharp/tools/grpc_csharp_plugin
 
-# collect
-#find csharp/tools -type f -not -name 'protoc' -print0 | xargs -0 -I {} mv csharp/tools/{}
+chmod +x csharp/tools/grpc_csharp_plugin

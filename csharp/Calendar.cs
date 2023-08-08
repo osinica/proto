@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Proto.Calendar {
+namespace Osinica.Proto.Calendar {
 
   /// <summary>Holder for reflection information generated from proto/calendar.proto</summary>
   public static partial class CalendarReflection {
@@ -37,16 +37,16 @@ namespace Proto.Calendar {
             "cmVhdGVFdmVudBIcLmNhbGVuZGFyLkNyZWF0ZUV2ZW50UmVxdWVzdBodLmNh",
             "bGVuZGFyLkNyZWF0ZUV2ZW50UmVzcG9uc2UiABJACgdGaW5kT25lEhguY2Fs",
             "ZW5kYXIuRmluZE9uZVJlcXVlc3QaGS5jYWxlbmRhci5GaW5kT25lUmVzcG9u",
-            "c2UiAEIhWg4uL3BrZy9jYWxlbmRhcqoCDlByb3RvLkNhbGVuZGFyYgZwcm90",
-            "bzM="));
+            "c2UiAEIpWg4uL3BrZy9jYWxlbmRhcqoCFk9zaW5pY2EuUHJvdG8uQ2FsZW5k",
+            "YXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Proto.Calendar.Status), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.Calendar.Event), global::Proto.Calendar.Event.Parser, new[]{ "Id", "Name", "Start", "End" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.Calendar.CreateEventRequest), global::Proto.Calendar.CreateEventRequest.Parser, new[]{ "Name", "Start", "Ent" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.Calendar.CreateEventResponse), global::Proto.Calendar.CreateEventResponse.Parser, new[]{ "Status", "Error", "Data" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.Calendar.FindOneRequest), global::Proto.Calendar.FindOneRequest.Parser, new[]{ "Id" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.Calendar.FindOneResponse), global::Proto.Calendar.FindOneResponse.Parser, new[]{ "Status", "Error", "Data" }, null, null, null, null)
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Osinica.Proto.Calendar.Status), }, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Osinica.Proto.Calendar.Event), global::Osinica.Proto.Calendar.Event.Parser, new[]{ "Id", "Name", "Start", "End" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Osinica.Proto.Calendar.CreateEventRequest), global::Osinica.Proto.Calendar.CreateEventRequest.Parser, new[]{ "Name", "Start", "Ent" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Osinica.Proto.Calendar.CreateEventResponse), global::Osinica.Proto.Calendar.CreateEventResponse.Parser, new[]{ "Status", "Error", "Data" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Osinica.Proto.Calendar.FindOneRequest), global::Osinica.Proto.Calendar.FindOneRequest.Parser, new[]{ "Id" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Osinica.Proto.Calendar.FindOneResponse), global::Osinica.Proto.Calendar.FindOneResponse.Parser, new[]{ "Status", "Error", "Data" }, null, null, null, null)
           }));
     }
     #endregion
@@ -75,7 +75,7 @@ namespace Proto.Calendar {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Proto.Calendar.CalendarReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Osinica.Proto.Calendar.CalendarReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -378,7 +378,7 @@ namespace Proto.Calendar {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Proto.Calendar.CalendarReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Osinica.Proto.Calendar.CalendarReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -641,7 +641,7 @@ namespace Proto.Calendar {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Proto.Calendar.CalendarReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Osinica.Proto.Calendar.CalendarReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -675,10 +675,10 @@ namespace Proto.Calendar {
 
     /// <summary>Field number for the "status" field.</summary>
     public const int StatusFieldNumber = 1;
-    private global::Proto.Calendar.Status status_ = global::Proto.Calendar.Status.Success;
+    private global::Osinica.Proto.Calendar.Status status_ = global::Osinica.Proto.Calendar.Status.Success;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Proto.Calendar.Status Status {
+    public global::Osinica.Proto.Calendar.Status Status {
       get { return status_; }
       set {
         status_ = value;
@@ -699,10 +699,10 @@ namespace Proto.Calendar {
 
     /// <summary>Field number for the "data" field.</summary>
     public const int DataFieldNumber = 3;
-    private global::Proto.Calendar.Event data_;
+    private global::Osinica.Proto.Calendar.Event data_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Proto.Calendar.Event Data {
+    public global::Osinica.Proto.Calendar.Event Data {
       get { return data_; }
       set {
         data_ = value;
@@ -734,7 +734,7 @@ namespace Proto.Calendar {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Status != global::Proto.Calendar.Status.Success) hash ^= Status.GetHashCode();
+      if (Status != global::Osinica.Proto.Calendar.Status.Success) hash ^= Status.GetHashCode();
       if (Error.Length != 0) hash ^= Error.GetHashCode();
       if (data_ != null) hash ^= Data.GetHashCode();
       if (_unknownFields != null) {
@@ -755,7 +755,7 @@ namespace Proto.Calendar {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Status != global::Proto.Calendar.Status.Success) {
+      if (Status != global::Osinica.Proto.Calendar.Status.Success) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Status);
       }
@@ -777,7 +777,7 @@ namespace Proto.Calendar {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Status != global::Proto.Calendar.Status.Success) {
+      if (Status != global::Osinica.Proto.Calendar.Status.Success) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Status);
       }
@@ -799,7 +799,7 @@ namespace Proto.Calendar {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Status != global::Proto.Calendar.Status.Success) {
+      if (Status != global::Osinica.Proto.Calendar.Status.Success) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
       }
       if (Error.Length != 0) {
@@ -820,7 +820,7 @@ namespace Proto.Calendar {
       if (other == null) {
         return;
       }
-      if (other.Status != global::Proto.Calendar.Status.Success) {
+      if (other.Status != global::Osinica.Proto.Calendar.Status.Success) {
         Status = other.Status;
       }
       if (other.Error.Length != 0) {
@@ -828,7 +828,7 @@ namespace Proto.Calendar {
       }
       if (other.data_ != null) {
         if (data_ == null) {
-          Data = new global::Proto.Calendar.Event();
+          Data = new global::Osinica.Proto.Calendar.Event();
         }
         Data.MergeFrom(other.Data);
       }
@@ -848,7 +848,7 @@ namespace Proto.Calendar {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Status = (global::Proto.Calendar.Status) input.ReadEnum();
+            Status = (global::Osinica.Proto.Calendar.Status) input.ReadEnum();
             break;
           }
           case 18: {
@@ -857,7 +857,7 @@ namespace Proto.Calendar {
           }
           case 26: {
             if (data_ == null) {
-              Data = new global::Proto.Calendar.Event();
+              Data = new global::Osinica.Proto.Calendar.Event();
             }
             input.ReadMessage(Data);
             break;
@@ -878,7 +878,7 @@ namespace Proto.Calendar {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Status = (global::Proto.Calendar.Status) input.ReadEnum();
+            Status = (global::Osinica.Proto.Calendar.Status) input.ReadEnum();
             break;
           }
           case 18: {
@@ -887,7 +887,7 @@ namespace Proto.Calendar {
           }
           case 26: {
             if (data_ == null) {
-              Data = new global::Proto.Calendar.Event();
+              Data = new global::Osinica.Proto.Calendar.Event();
             }
             input.ReadMessage(Data);
             break;
@@ -916,7 +916,7 @@ namespace Proto.Calendar {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Proto.Calendar.CalendarReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Osinica.Proto.Calendar.CalendarReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1105,7 +1105,7 @@ namespace Proto.Calendar {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Proto.Calendar.CalendarReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Osinica.Proto.Calendar.CalendarReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1139,10 +1139,10 @@ namespace Proto.Calendar {
 
     /// <summary>Field number for the "status" field.</summary>
     public const int StatusFieldNumber = 1;
-    private global::Proto.Calendar.Status status_ = global::Proto.Calendar.Status.Success;
+    private global::Osinica.Proto.Calendar.Status status_ = global::Osinica.Proto.Calendar.Status.Success;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Proto.Calendar.Status Status {
+    public global::Osinica.Proto.Calendar.Status Status {
       get { return status_; }
       set {
         status_ = value;
@@ -1163,10 +1163,10 @@ namespace Proto.Calendar {
 
     /// <summary>Field number for the "data" field.</summary>
     public const int DataFieldNumber = 3;
-    private global::Proto.Calendar.Event data_;
+    private global::Osinica.Proto.Calendar.Event data_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Proto.Calendar.Event Data {
+    public global::Osinica.Proto.Calendar.Event Data {
       get { return data_; }
       set {
         data_ = value;
@@ -1198,7 +1198,7 @@ namespace Proto.Calendar {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Status != global::Proto.Calendar.Status.Success) hash ^= Status.GetHashCode();
+      if (Status != global::Osinica.Proto.Calendar.Status.Success) hash ^= Status.GetHashCode();
       if (Error.Length != 0) hash ^= Error.GetHashCode();
       if (data_ != null) hash ^= Data.GetHashCode();
       if (_unknownFields != null) {
@@ -1219,7 +1219,7 @@ namespace Proto.Calendar {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Status != global::Proto.Calendar.Status.Success) {
+      if (Status != global::Osinica.Proto.Calendar.Status.Success) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Status);
       }
@@ -1241,7 +1241,7 @@ namespace Proto.Calendar {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Status != global::Proto.Calendar.Status.Success) {
+      if (Status != global::Osinica.Proto.Calendar.Status.Success) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Status);
       }
@@ -1263,7 +1263,7 @@ namespace Proto.Calendar {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Status != global::Proto.Calendar.Status.Success) {
+      if (Status != global::Osinica.Proto.Calendar.Status.Success) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
       }
       if (Error.Length != 0) {
@@ -1284,7 +1284,7 @@ namespace Proto.Calendar {
       if (other == null) {
         return;
       }
-      if (other.Status != global::Proto.Calendar.Status.Success) {
+      if (other.Status != global::Osinica.Proto.Calendar.Status.Success) {
         Status = other.Status;
       }
       if (other.Error.Length != 0) {
@@ -1292,7 +1292,7 @@ namespace Proto.Calendar {
       }
       if (other.data_ != null) {
         if (data_ == null) {
-          Data = new global::Proto.Calendar.Event();
+          Data = new global::Osinica.Proto.Calendar.Event();
         }
         Data.MergeFrom(other.Data);
       }
@@ -1312,7 +1312,7 @@ namespace Proto.Calendar {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Status = (global::Proto.Calendar.Status) input.ReadEnum();
+            Status = (global::Osinica.Proto.Calendar.Status) input.ReadEnum();
             break;
           }
           case 18: {
@@ -1321,7 +1321,7 @@ namespace Proto.Calendar {
           }
           case 26: {
             if (data_ == null) {
-              Data = new global::Proto.Calendar.Event();
+              Data = new global::Osinica.Proto.Calendar.Event();
             }
             input.ReadMessage(Data);
             break;
@@ -1342,7 +1342,7 @@ namespace Proto.Calendar {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Status = (global::Proto.Calendar.Status) input.ReadEnum();
+            Status = (global::Osinica.Proto.Calendar.Status) input.ReadEnum();
             break;
           }
           case 18: {
@@ -1351,7 +1351,7 @@ namespace Proto.Calendar {
           }
           case 26: {
             if (data_ == null) {
-              Data = new global::Proto.Calendar.Event();
+              Data = new global::Osinica.Proto.Calendar.Event();
             }
             input.ReadMessage(Data);
             break;

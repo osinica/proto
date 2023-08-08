@@ -3,7 +3,7 @@ syntax = "proto3";
 package calendar;
 
 option go_package = "./pkg/calendar";
-option csharp_namespace = "Proto.Calendar";
+option csharp_namespace = "Osinica.Proto.Calendar";
 
 service CalendarService {
     rpc CreateEvent(CreateEventRequest) returns (CreateEventResponse) {}

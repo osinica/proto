@@ -7,7 +7,7 @@
 
 using grpc = global::Grpc.Core;
 
-namespace Proto.Calendar {
+namespace Osinica.Proto.Calendar {
   public static partial class CalendarService
   {
     static readonly string __ServiceName = "calendar.CalendarService";
@@ -46,16 +46,16 @@ namespace Proto.Calendar {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Proto.Calendar.CreateEventRequest> __Marshaller_calendar_CreateEventRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Proto.Calendar.CreateEventRequest.Parser));
+    static readonly grpc::Marshaller<global::Osinica.Proto.Calendar.CreateEventRequest> __Marshaller_calendar_CreateEventRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Osinica.Proto.Calendar.CreateEventRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Proto.Calendar.CreateEventResponse> __Marshaller_calendar_CreateEventResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Proto.Calendar.CreateEventResponse.Parser));
+    static readonly grpc::Marshaller<global::Osinica.Proto.Calendar.CreateEventResponse> __Marshaller_calendar_CreateEventResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Osinica.Proto.Calendar.CreateEventResponse.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Proto.Calendar.FindOneRequest> __Marshaller_calendar_FindOneRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Proto.Calendar.FindOneRequest.Parser));
+    static readonly grpc::Marshaller<global::Osinica.Proto.Calendar.FindOneRequest> __Marshaller_calendar_FindOneRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Osinica.Proto.Calendar.FindOneRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Proto.Calendar.FindOneResponse> __Marshaller_calendar_FindOneResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Proto.Calendar.FindOneResponse.Parser));
+    static readonly grpc::Marshaller<global::Osinica.Proto.Calendar.FindOneResponse> __Marshaller_calendar_FindOneResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Osinica.Proto.Calendar.FindOneResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Proto.Calendar.CreateEventRequest, global::Proto.Calendar.CreateEventResponse> __Method_CreateEvent = new grpc::Method<global::Proto.Calendar.CreateEventRequest, global::Proto.Calendar.CreateEventResponse>(
+    static readonly grpc::Method<global::Osinica.Proto.Calendar.CreateEventRequest, global::Osinica.Proto.Calendar.CreateEventResponse> __Method_CreateEvent = new grpc::Method<global::Osinica.Proto.Calendar.CreateEventRequest, global::Osinica.Proto.Calendar.CreateEventResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "CreateEvent",
@@ -63,7 +63,7 @@ namespace Proto.Calendar {
         __Marshaller_calendar_CreateEventResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Proto.Calendar.FindOneRequest, global::Proto.Calendar.FindOneResponse> __Method_FindOne = new grpc::Method<global::Proto.Calendar.FindOneRequest, global::Proto.Calendar.FindOneResponse>(
+    static readonly grpc::Method<global::Osinica.Proto.Calendar.FindOneRequest, global::Osinica.Proto.Calendar.FindOneResponse> __Method_FindOne = new grpc::Method<global::Osinica.Proto.Calendar.FindOneRequest, global::Osinica.Proto.Calendar.FindOneResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "FindOne",
@@ -73,7 +73,7 @@ namespace Proto.Calendar {
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Proto.Calendar.CalendarReflection.Descriptor.Services[0]; }
+      get { return global::Osinica.Proto.Calendar.CalendarReflection.Descriptor.Services[0]; }
     }
 
     /// <summary>Base class for server-side implementations of CalendarService</summary>
@@ -81,13 +81,13 @@ namespace Proto.Calendar {
     public abstract partial class CalendarServiceBase
     {
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Proto.Calendar.CreateEventResponse> CreateEvent(global::Proto.Calendar.CreateEventRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Osinica.Proto.Calendar.CreateEventResponse> CreateEvent(global::Osinica.Proto.Calendar.CreateEventRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Proto.Calendar.FindOneResponse> FindOne(global::Proto.Calendar.FindOneRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Osinica.Proto.Calendar.FindOneResponse> FindOne(global::Osinica.Proto.Calendar.FindOneRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -122,42 +122,42 @@ namespace Proto.Calendar {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Proto.Calendar.CreateEventResponse CreateEvent(global::Proto.Calendar.CreateEventRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Osinica.Proto.Calendar.CreateEventResponse CreateEvent(global::Osinica.Proto.Calendar.CreateEventRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CreateEvent(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Proto.Calendar.CreateEventResponse CreateEvent(global::Proto.Calendar.CreateEventRequest request, grpc::CallOptions options)
+      public virtual global::Osinica.Proto.Calendar.CreateEventResponse CreateEvent(global::Osinica.Proto.Calendar.CreateEventRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_CreateEvent, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Proto.Calendar.CreateEventResponse> CreateEventAsync(global::Proto.Calendar.CreateEventRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Osinica.Proto.Calendar.CreateEventResponse> CreateEventAsync(global::Osinica.Proto.Calendar.CreateEventRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CreateEventAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Proto.Calendar.CreateEventResponse> CreateEventAsync(global::Proto.Calendar.CreateEventRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Osinica.Proto.Calendar.CreateEventResponse> CreateEventAsync(global::Osinica.Proto.Calendar.CreateEventRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_CreateEvent, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Proto.Calendar.FindOneResponse FindOne(global::Proto.Calendar.FindOneRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Osinica.Proto.Calendar.FindOneResponse FindOne(global::Osinica.Proto.Calendar.FindOneRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return FindOne(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Proto.Calendar.FindOneResponse FindOne(global::Proto.Calendar.FindOneRequest request, grpc::CallOptions options)
+      public virtual global::Osinica.Proto.Calendar.FindOneResponse FindOne(global::Osinica.Proto.Calendar.FindOneRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_FindOne, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Proto.Calendar.FindOneResponse> FindOneAsync(global::Proto.Calendar.FindOneRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Osinica.Proto.Calendar.FindOneResponse> FindOneAsync(global::Osinica.Proto.Calendar.FindOneRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return FindOneAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Proto.Calendar.FindOneResponse> FindOneAsync(global::Proto.Calendar.FindOneRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Osinica.Proto.Calendar.FindOneResponse> FindOneAsync(global::Osinica.Proto.Calendar.FindOneRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_FindOne, null, options, request);
       }
@@ -186,8 +186,8 @@ namespace Proto.Calendar {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     public static void BindService(grpc::ServiceBinderBase serviceBinder, CalendarServiceBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_CreateEvent, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Proto.Calendar.CreateEventRequest, global::Proto.Calendar.CreateEventResponse>(serviceImpl.CreateEvent));
-      serviceBinder.AddMethod(__Method_FindOne, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Proto.Calendar.FindOneRequest, global::Proto.Calendar.FindOneResponse>(serviceImpl.FindOne));
+      serviceBinder.AddMethod(__Method_CreateEvent, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Osinica.Proto.Calendar.CreateEventRequest, global::Osinica.Proto.Calendar.CreateEventResponse>(serviceImpl.CreateEvent));
+      serviceBinder.AddMethod(__Method_FindOne, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Osinica.Proto.Calendar.FindOneRequest, global::Osinica.Proto.Calendar.FindOneResponse>(serviceImpl.FindOne));
     }
 
   }

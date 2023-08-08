@@ -51,7 +51,7 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: "chore: increase npm version [skip ci]"
+          message: "increase npm version [skip ci]"
 
   create-release:
     name: Create release
@@ -155,14 +155,17 @@ jobs:
       - name: Build
         run: make build-csharp
       - name: Bundle
-        run: dotnet pack csharp -c Release -o ${{env.NuGetDirectory}}
+        run: dotnet pack csharp -c Release -o ${{env.NuGetDirectory}} /p:Version=${{needs.set-versions.outputs.version}} -p:PackageID=Osinica.Proto
       - name: Publish to release assets
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
           upload_url: ${{needs.create-release.outputs.release_upload_url}}
-          asset_path: ${{env.NuGetDirectory}}/*.nupkg
+          asset_path: ${{env.NuGetDirectory}}/Osinica.Proto.${{needs.set-versions.outputs.version}}.nupkg
           asset_name: csharp-build-${{needs.set-versions.outputs.version}}.nupkg
+          asset_content_type: application/zip
+      - name: Add GitHub source
+        run: dotnet nuget add source --username flexwie --password ${{secrets.GITHUB_TOKEN}} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/osinica/index.json"
       - name: Publish
-        run: dotnet nuget push ${{env.NuGetDirectory}}/*.nupkg --skip-duplicate --no-symbols true --api-key ${{secrets.GITHUB_TOKEN}} --source "github"
+        run: dotnet nuget push ${{env.NuGetDirectory}}/Osinica.Proto.${{needs.set-versions.outputs.version}}.nupkg --skip-duplicate --source "github"

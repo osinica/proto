@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Proto.Auth {
+namespace Osinica.Proto.Auth {
 
   /// <summary>Holder for reflection information generated from proto/auth.proto</summary>
   public static partial class AuthReflection {
@@ -28,13 +28,13 @@ namespace Proto.Auth {
             "CgV0b2tlbhgBIAEoCSJBChBWYWxpZGF0ZVJlc3BvbnNlEg4KBnN0YXR1cxgB",
             "IAEoAxINCgVlcnJvchgCIAEoCRIOCgZ1c2VySWQYAyABKAkySgoLQXV0aFNl",
             "cnZpY2USOwoIVmFsaWRhdGUSFS5hdXRoLlZhbGlkYXRlUmVxdWVzdBoWLmF1",
-            "dGguVmFsaWRhdGVSZXNwb25zZSIAQhlaCi4vcGtnL2F1dGiqAgpQcm90by5B",
-            "dXRoYgZwcm90bzM="));
+            "dGguVmFsaWRhdGVSZXNwb25zZSIAQiFaCi4vcGtnL2F1dGiqAhJPc2luaWNh",
+            "LlByb3RvLkF1dGhiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.Auth.ValidateRequest), global::Proto.Auth.ValidateRequest.Parser, new[]{ "Token" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.Auth.ValidateResponse), global::Proto.Auth.ValidateResponse.Parser, new[]{ "Status", "Error", "UserId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Osinica.Proto.Auth.ValidateRequest), global::Osinica.Proto.Auth.ValidateRequest.Parser, new[]{ "Token" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Osinica.Proto.Auth.ValidateResponse), global::Osinica.Proto.Auth.ValidateResponse.Parser, new[]{ "Status", "Error", "UserId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -55,7 +55,7 @@ namespace Proto.Auth {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Proto.Auth.AuthReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Osinica.Proto.Auth.AuthReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -244,7 +244,7 @@ namespace Proto.Auth {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Proto.Auth.AuthReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Osinica.Proto.Auth.AuthReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

@@ -7,7 +7,7 @@
 
 using grpc = global::Grpc.Core;
 
-namespace Proto.Auth {
+namespace Osinica.Proto.Auth {
   public static partial class AuthService
   {
     static readonly string __ServiceName = "auth.AuthService";
@@ -46,12 +46,12 @@ namespace Proto.Auth {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Proto.Auth.ValidateRequest> __Marshaller_auth_ValidateRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Proto.Auth.ValidateRequest.Parser));
+    static readonly grpc::Marshaller<global::Osinica.Proto.Auth.ValidateRequest> __Marshaller_auth_ValidateRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Osinica.Proto.Auth.ValidateRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Proto.Auth.ValidateResponse> __Marshaller_auth_ValidateResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Proto.Auth.ValidateResponse.Parser));
+    static readonly grpc::Marshaller<global::Osinica.Proto.Auth.ValidateResponse> __Marshaller_auth_ValidateResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Osinica.Proto.Auth.ValidateResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Proto.Auth.ValidateRequest, global::Proto.Auth.ValidateResponse> __Method_Validate = new grpc::Method<global::Proto.Auth.ValidateRequest, global::Proto.Auth.ValidateResponse>(
+    static readonly grpc::Method<global::Osinica.Proto.Auth.ValidateRequest, global::Osinica.Proto.Auth.ValidateResponse> __Method_Validate = new grpc::Method<global::Osinica.Proto.Auth.ValidateRequest, global::Osinica.Proto.Auth.ValidateResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Validate",
@@ -61,7 +61,7 @@ namespace Proto.Auth {
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Proto.Auth.AuthReflection.Descriptor.Services[0]; }
+      get { return global::Osinica.Proto.Auth.AuthReflection.Descriptor.Services[0]; }
     }
 
     /// <summary>Base class for server-side implementations of AuthService</summary>
@@ -69,7 +69,7 @@ namespace Proto.Auth {
     public abstract partial class AuthServiceBase
     {
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Proto.Auth.ValidateResponse> Validate(global::Proto.Auth.ValidateRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Osinica.Proto.Auth.ValidateResponse> Validate(global::Osinica.Proto.Auth.ValidateRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -104,22 +104,22 @@ namespace Proto.Auth {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Proto.Auth.ValidateResponse Validate(global::Proto.Auth.ValidateRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Osinica.Proto.Auth.ValidateResponse Validate(global::Osinica.Proto.Auth.ValidateRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Validate(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Proto.Auth.ValidateResponse Validate(global::Proto.Auth.ValidateRequest request, grpc::CallOptions options)
+      public virtual global::Osinica.Proto.Auth.ValidateResponse Validate(global::Osinica.Proto.Auth.ValidateRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Validate, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Proto.Auth.ValidateResponse> ValidateAsync(global::Proto.Auth.ValidateRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Osinica.Proto.Auth.ValidateResponse> ValidateAsync(global::Osinica.Proto.Auth.ValidateRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return ValidateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Proto.Auth.ValidateResponse> ValidateAsync(global::Proto.Auth.ValidateRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Osinica.Proto.Auth.ValidateResponse> ValidateAsync(global::Osinica.Proto.Auth.ValidateRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Validate, null, options, request);
       }
@@ -147,7 +147,7 @@ namespace Proto.Auth {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     public static void BindService(grpc::ServiceBinderBase serviceBinder, AuthServiceBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Validate, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Proto.Auth.ValidateRequest, global::Proto.Auth.ValidateResponse>(serviceImpl.Validate));
+      serviceBinder.AddMethod(__Method_Validate, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Osinica.Proto.Auth.ValidateRequest, global::Osinica.Proto.Auth.ValidateResponse>(serviceImpl.Validate));
     }
 
   }

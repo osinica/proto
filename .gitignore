@@ -2,3 +2,4 @@ node_modules
 typescript/dist
 csharp/obj
 csharp/tools
+csharp/bin
